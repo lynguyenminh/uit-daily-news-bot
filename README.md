@@ -1,6 +1,6 @@
 # AUTO BOT GET NEWS
 
-This bot will announce new post from https://student.uit.edu.vn/ and https://cs.uit.edu.vn/.
+This bot will announce new post from https://student.uit.edu.vn/ and https://cs.uit.edu.vn/. This info is being sent to Telegram.
 
 ## My environment: 
 ```
@@ -26,3 +26,6 @@ Then write this script:
 ```
 0 1 * * * /usr/bin/env bash -c 'cd /root/uit_daily_news_bot && sh /root/uit_daily_news_bot/run.sh'
 ```
+
+
+If this code has any errors, please contact me by email: 20521592@gm.uit.edu.vn
