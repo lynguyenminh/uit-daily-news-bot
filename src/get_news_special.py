@@ -6,9 +6,23 @@ import json
 from send_telegram import *
 import asyncio
 
-url =  'https://cs.uit.edu.vn/'
+url =  'https://student.uit.edu.vn/'
 page = urllib.request.urlopen(url)
 soup = BeautifulSoup(page, 'html.parser')
+domain = 'https://student.uit.edu.vn/'
+
+class_name = [
+    'row-1 row-first', 
+    'row-2', 
+    'row-3', 
+    'row-4', 
+    'row-5', 
+    'row-6', 
+    'row-7', 
+    'row-8', 
+    'row-9', 
+    'row-10 row-last'
+]
 
 
 class uit_feed:
@@ -16,31 +30,34 @@ class uit_feed:
         self.title = title
         self.link = link
     
-    def compare(self, other_feed) -> bool:
+    def compare(self, other_feed):
         return self.title == other_feed.title and self.link == other_feed.link
 
 
-def check_in(feed, list_old_feed) -> bool:
+def get_new(class_name):
+    new_feed = soup.find('tr', class_=class_name).find('a')
+    link = domain + new_feed.get('href')
+    title = new_feed.getText()
+    feed =uit_feed(title=title, link=link)
+    return feed
+
+
+def check_in(feed, list_old_feed):
     for i in list_old_feed: 
         if feed.compare(i):
             return True
     return False
 
 
-class_name = 'entry-header'
-new_feed = soup.find_all('div', class_=class_name)
-
-# detect current feed
+# get new feed
 list_new_feed = []
-for i in new_feed:
-    feed = i.find_all('a')
-    link = feed[1].get('href')
-    title = feed[1].getText()
-    list_new_feed.append(uit_feed(title=title, link=link))
+for i in tqdm(class_name):
+    list_new_feed.append(get_new(class_name=i))
 
-
+# list_new_feed = [i.__dict__ for i in list_new_feed]
+# print(list_new_feed)
 # read old feed
-f = open('current_feed_cs.json')
+f = open('data/current_feed_special.json')
 data = json.load(f)
 f.close()
 list_old_feed = [uit_feed(i.get('title'), i.get('link')) for i in data['info']]
@@ -54,7 +71,6 @@ for feed in list_new_feed:
 
 
 # send message
-
 new_feed = [i.__dict__ for i in new_feed]
 for i in new_feed:
     asyncio.run(send_message(i.get('link')))
@@ -62,6 +78,6 @@ for i in new_feed:
 
 # save current feed
 list_new_feed = [i.__dict__ for i in list_new_feed]
-with open("current_feed_cs.json", "w", encoding='utf-8') as outfile:
+with open("data/current_feed_special.json", "w", encoding='utf-8') as outfile:
     json.dump({"info":list_new_feed}, outfile, ensure_ascii=False, indent=4)
 

@@ -2,10 +2,9 @@ import asyncio
 import telegram
 
 
-f = open('account.txt', 'r')
-lines = [i[:-1] for i in f.readlines() if i[-1] == '\n']
-my_token = lines[0]
-my_id = int(lines[1])
+
+my_token = 'xxx'
+my_id = xxx
 
 
 async def send_message(text_message):    

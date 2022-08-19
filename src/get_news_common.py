@@ -55,7 +55,7 @@ for i in tqdm(class_name):
     list_new_feed.append(get_new(class_name=i))
 
 # read old feed
-f = open('current_feed.json')
+f = open('data/current_feed_common.json')
 data = json.load(f)
 f.close()
 list_old_feed = [uit_feed(i.get('title'), i.get('link')) for i in data['info']]
@@ -76,6 +76,6 @@ for i in new_feed:
 
 # save current feed
 list_new_feed = [i.__dict__ for i in list_new_feed]
-with open("current_feed.json", "w", encoding='utf-8') as outfile:
+with open("data/current_feed_common.json", "w", encoding='utf-8') as outfile:
     json.dump({"info":list_new_feed}, outfile, ensure_ascii=False, indent=4)
 
