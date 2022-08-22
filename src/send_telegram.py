@@ -1,5 +1,6 @@
 import asyncio
 import telegram
+from datetime import date
 
 
 
@@ -15,4 +16,6 @@ async def send_message(text_message):
 
 bot = telegram.Bot(my_token)
 if __name__ == '__main__':
-    asyncio.run(send_message('Hello, I\'m bot!!!'))
+    today = date.today()
+    content = 'Today\'s date: ' + str(today.strftime("%b-%d-%Y"))
+    asyncio.run(send_message(content))
