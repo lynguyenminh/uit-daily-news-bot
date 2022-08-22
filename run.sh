@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-# . venv/bin/activate
+. venv/bin/activate
+
+python3 src/send_telegram.py
+
 # echo 'get common news'
 python3 src/get_news_common.py
 
