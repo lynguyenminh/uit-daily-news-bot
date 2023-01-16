@@ -28,12 +28,16 @@ pip install -r requirements.txt
 ## 2. Create Telegram bot add your account
 ### 2.1. Create Telegram bot
 Search `BotFather` and do the following, your bot id is the one I blurred: 
+![create-bot-tele](https://user-images.githubusercontent.com/82688630/212620535-a96191e0-dda4-4f81-91bd-d7721ac4f098.png)
 
 
 ### 2.2. Get your account id
 Search `userinfobot` and type `/start`
 
-### 2.3. Fill xxx into file (send_telegram)[./src/send_telegram.py]
+![get-user-id](https://user-images.githubusercontent.com/82688630/212620716-bc73a477-a937-4a55-a66d-2b955ffc0c04.png)
+
+
+Then fill this info into [send_telegram.py](./src/send_telegram.py)
 
 ## 3. Run code
 I schedule it run one time per day at `1.am`. To do it, i use `crontab`.On Ubuntu, open crontab by `crontab -e`. 
