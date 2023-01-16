@@ -25,7 +25,7 @@ virtualenv venv && source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## 2. Create Telegram bot add your account
+## 2. Create Telegram bot and add your account
 ### 2.1. Create Telegram bot
 Search `BotFather` and do the following, your bot id is the one I blurred: 
 ![create-bot-tele](https://user-images.githubusercontent.com/82688630/212620535-a96191e0-dda4-4f81-91bd-d7721ac4f098.png)
