@@ -37,7 +37,7 @@ Search `userinfobot` and type `/start`
 ![get-user-id](https://user-images.githubusercontent.com/82688630/212620716-bc73a477-a937-4a55-a66d-2b955ffc0c04.png)
 
 
-Then fill this info into [send_telegram.py](./src/send_telegram.py)
+Then fill `bot id` and `account id` into [send_telegram.py](./src/send_telegram.py)
 
 ## 3. Run code
 I schedule it run one time per day at `1.am`. To do it, i use `crontab`.On Ubuntu, open crontab by `crontab -e`. 
