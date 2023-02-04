@@ -1,6 +1,6 @@
 # AUTO BOT GET NEWS
 
-This bot will `announce new post` from:
+This bot will `announce new post` every day from:
 * https://student.uit.edu.vn/ 
 * https://cs.uit.edu.vn/
 * https://ctsv.uit.edu.vn/
