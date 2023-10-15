@@ -45,4 +45,8 @@ Then write this script:
 ```
 0 1 * * * /usr/bin/env bash -c 'cd /root/uit_daily_news_bot && sh /root/uit_daily_news_bot/run.sh'
 ```
+
+## 4. Advance: Add bot to a group
+Please check 2 tutorials below: [add bot to the group](https://www.youtube.com/watch?v=gk_tPOY1TDM) and [get the group id](https://stackoverflow.com/a/32572159).
+
 If this code has any errors, please create issue or contact me by email: 20521592@gm.uit.edu.vn
